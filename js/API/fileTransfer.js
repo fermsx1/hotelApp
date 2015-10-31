@@ -1,51 +1,22 @@
+var fileTransfer = {
+	win: function (r) {
+		if(r.response == '1'){
+			navigator.notification.alert("Los datos se han enviado satisfactoriamente", null, "Registro Correcto", "Aceptar");
+		}else{
+			alert("Error");
+		}
+			
+	},
+	fail: function (error) {
+		alert("An error has occurred: Code = " + error.code);
+	},
+	sendPhoto: function(path){
+		var options = new FileUploadOptions();
+		options.fileKey = "foto";
+		options.fileName = "Carlos";
+		options.mimeType = "image/jpeg";
 
-var ft{
-    
-    win: function (r) {
-        
-        if(r.responseCode){
-            //EXITOSO
-            
-            navigator.notification.alert('Registrado Correctamente', function(){
-                navigator.vibrate(2000); 
-                navigator.notification.beep(1);
-                window.localStorage.setItem('uuid',10);
-                window.location.href ='#home';
-
-                },
-                'Bienvenido',
-                'Registrado'
-            );
-
-
-        }else{
-            alert("Error")
-        }
-       
-    },
-    
-    fail:function (error) {
-        aler("Error " + error);
-    },
-        
-    start:function(path){
-        var uri = encodeURI("http://carlos.igitsoft.com/apps/test.php");
-
-        var options = new FileUploadOptions();
-        options.fileKey="foto";
-        options.fileName="Fernando";
-        options.mimeType="image/jpeg";
-        var ft = new FileTransfer();     
-        
-        ft.upload(path, uri, ft.win, ft.fail, options);
-    }
-
-
-
-
-}
-
-
-
-
-
+		var ft = new FileTransfer();
+		ft.upload(path, "http://carlos.igitsoft.com/apps/test.php", fileTransfer.win, fileTransfer.fail, options);
+	}
+};
