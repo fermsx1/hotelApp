@@ -11,7 +11,7 @@ var fn = {
 		document.addEventListener("deviceready", fn.init, false);
 	},
 	islogged: function(){
-		return localStorage.estaRegistrdo();
+		return ls.estaRegistrdo();
 	},
 	getRegister: function(){
 		var nom = $('#regName').val();

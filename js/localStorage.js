@@ -1,7 +1,7 @@
 //Archivo de bases de datos
 
 
-var localStorage = {
+var ls = {
     registroLocal: function(){
         window.localStorage.setItem('nom', device.uuid);
         window.location.href='#home';
