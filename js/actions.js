@@ -1,11 +1,25 @@
 var fn = {
 	init: function(){
-		if(!fn.islogged())
-			window.location.href = "#reg";
-		
+		if(!fn.islogged()){
+            window.location.href = "#reg";            
+        }
+			
+       // window.location.href = "#nr1";            
+
 		//Funcionalidades de Registro
 		$('#regSend').click(fn.getRegister);
+        
+        
 		$('#takePhoto').click(mediaCapture.takePhoto);
+        
+        $('#nr1 ul[data-role=listview] a').click(fn.seleccionarTipo);
+
+        $('#nr1 div[data-role=navbar] li').click(fn.nr1Siguiente);
+        
+        $('#nr2 div[data-role=navbar] li').click(fn.nr2Reservar);
+
+
+        
 	},
 	ready:function(){
 		document.addEventListener("deviceready", fn.init, false);
@@ -23,7 +37,59 @@ var fn = {
 		}else{
 			navigator.notification.alert('Todos los campos son requeridos', null, "Error de Registro", "Aceptar");
 		}
-	}
+	},
+    
+    seleccionarTipo: function(){
+        console.log($(this));
+        
+        $(this).parents("ul").find("a").removeClass("ui-btn-active");
+        
+        $(this).addClass("ui-btn-active");
+        
+         $("#nr1").attr("th", $(this).text());
+        
+        
+    },
+    
+    nr1Siguiente :  function(){
+         if( $(this).index()==1 &&  $("#nr1").attr("th")!=undefined){
+             /* PASAR A LA SIGUIENTE PANTALLA SI EL ATRIBUTO TH CONTIENE ALGO
+             */
+             window.location.href="#nr2";
+         }else{
+             if($(this).index()!=0){
+                alert("Es necesario seleccionar un tipo de habitación");
+
+             }else{
+                 
+             }
+         }
+    },
+    
+     nr2Reservar :  function(){
+        var th =   $("#nr1").attr("th");
+        var np =   $("#numPersonas").val();
+        var nh =   $("#numHabitaciones").val();
+        var nd =   $("#numDias").val();
+         
+        console.log(th + " " + np + " "+ nh +" " + nd);
+         
+         if(conexion.estaConectado()){
+             
+             server.envRes(th,np,nh,nd);
+             
+             /*Enviar informacion al servidor */
+         }else{
+            /*guardar info en el dispositivo */
+             $.mobile.loadin("show");
+                almacen.guardarReserva(th,np,nh,nd);
+             $.mobile.loadin("hide");
+            
+         }
+
+         
+     }
 };
 
 $(fn.ready);
+//$(fn.init);
