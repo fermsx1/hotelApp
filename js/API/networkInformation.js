@@ -1,11 +1,11 @@
 var conexion={
-    estaConectado : funtion(){
+    estaConectado : function(){
     
         if(navigator.connection.type != Connection.NONE){
             return true;    
-        }else{
-            return false;
         }
+            return false;
+        
     }
     
 }
