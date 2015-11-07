@@ -86,9 +86,9 @@ var fn = {
          }else{
              alert("Guardar DB")
             /*guardar info en el dispositivo */
-             $.mobile.loadin("show");
+             $.mobile.loading("show");
                 almacen.guardarReserva(th,np,nh,nd);
-             $.mobile.loadin("hide");
+             $.mobile.loading("hide");
             
          }
 
