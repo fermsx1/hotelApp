@@ -74,7 +74,11 @@ var fn = {
          
         console.log(th + " " + np + " "+ nh +" " + nd);
          
+        alert("check Connection")
+
+         
          if(conexion.estaConectado()){
+              alert("Conectado")
              
              server.envRes(th,np,nh,nd);
              
