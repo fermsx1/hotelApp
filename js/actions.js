@@ -80,6 +80,7 @@ var fn = {
              
              /*Enviar informacion al servidor */
          }else{
+             alert("Guardar DB")
             /*guardar info en el dispositivo */
              $.mobile.loadin("show");
                 almacen.guardarReserva(th,np,nh,nd);
