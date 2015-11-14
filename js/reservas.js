@@ -78,7 +78,7 @@ var almacen = {
                 almacen.nh = response.rows.item(i).nh;
                 almacen.nd =  response.rows.item(i).nd;
                 
-                almacen.db.transaction(almacen.tablaHistorial, almacen.error, almacen.historialGuardado);
+                almacen.db.transaction(almacen.guardarHistorial, almacen.error, almacen.historialGuardado);
 
                 
             }
@@ -89,7 +89,7 @@ var almacen = {
         
     
     }, 
-    tablaHistorial : function(tx){
+    guardarHistorial : function(tx){
           tx.executeSql("CREATE TABLE IF NOT EXISTS historial (th, np, nh, nd)");
         tx.executeSql("INSERT INTO historial (th, np, nh, nd) VALUES('"+almacen.th+"','"+almacen.np+"','"+almacen.nh+"','"+almacen.nd+"')");  
     }
