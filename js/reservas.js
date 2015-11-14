@@ -17,14 +17,25 @@ var almacen = {
         
         almacen.db.transaction(almacen.tablaReserva, almacen.error, almacen.exito);
         
+         
+        
     },
     
     error:function(e){
+        
+        $.mobile.loading("hide");
+        
         alert("Error", "codigo " + e.code);
+        
+        window.location.href='#home';
     },
     
     exito:function(){
+        $.mobile.loading("hide");
+        
         alert("Reserva guardada, en esera de sincronizacion");
+        
+        window.location.href='#home';
     },
     
     tablaReserva:function (tx){
