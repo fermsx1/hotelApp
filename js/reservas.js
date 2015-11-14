@@ -83,7 +83,7 @@ var almacen = {
                 
             }
             
-
+         tx2.executeSQL("DELETE FROM reservas");
             
         }, almacen.error);
         
