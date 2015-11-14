@@ -88,7 +88,7 @@ var fn = {
             /*guardar info en el dispositivo */
              $.mobile.loading("show");
                 almacen.guardarReserva(th,np,nh,nd);
-            
+            $.mobile.loading("hide");
          }
 
          
