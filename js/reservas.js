@@ -5,7 +5,8 @@ var almacen = {
     nh:null,
     nd:null,
     
-    guardarReserva:function(th,np,nh,nd){
+    guardarReserva : function(th,np,nh,nd){
+        
         alert("Guardar Reserva");
         
         almacen.db = window.openDatabase("hotelApp", "1.0", "Hotel App", 200000);
@@ -14,21 +15,21 @@ var almacen = {
         almacen.nh = nh;
         almacen.nd = nd;
         
-         almacen.db.transaction(almacen.tablaReserva, almacen.error, almacen.exito);
+        almacen.db.transaction(almacen.tablaReserva, almacen.error, almacen.exito);
         
     },
     
     error:function(e){
         alert("Error", "codigo " + e.code);
     },
+    
     exito:function(){
         alert("Reserva guardada, en esera de sincronizacion");
     },
+    
     tablaReserva:function (tx){
         tx.executeSql("CREATE TABLE IF NOT EXISTS reservas (th, np, nh, nd)");
-        tx.executeSql("INSERT INTO reservas (th, np, nh, nd) VALUES('"+almacen.th+"','"+almacen.np+"','"+almacen.nh+"','"almacen.nd+"')");
-                     
-        
+        tx.executeSql("INSERT INTO reservas (th, np, nh, nd) VALUES('"+almacen.th+"','"+almacen.np+"','"+almacen.nh+"','"+almacen.nd+"')");        
     }
     
 }
