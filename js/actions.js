@@ -7,18 +7,18 @@ var fn = {
        // window.location.href = "#nr1";            
 
 		//Funcionalidades de Registro
-		$('#regSend').click(fn.getRegister);
+		$('#regSend').tap(fn.getRegister);
         
         
-		$('#takePhoto').click(mediaCapture.takePhoto);
+		$('#takePhoto').tap(mediaCapture.takePhoto);
         
-        $('#nr1 ul[data-role=listview] a').click(fn.seleccionarTipo);
+        $('#nr1 ul[data-role=listview] a').tap(fn.seleccionarTipo);
 
-        $('#nr1 div[data-role=navbar] li').click(fn.nr1Siguiente);
+        $('#nr1 div[data-role=navbar] li').tap(fn.nr1Siguiente);
         
-        $('#nr2 div[data-role=navbar] li').click(fn.nr2Reservar);
+        $('#nr2 div[data-role=navbar] li').tap(fn.nr2Reservar);
         
-        conexion.eventoConectado();
+        conexion.eventoConectado(); 
 
 
         

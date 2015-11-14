@@ -25,7 +25,7 @@ var almacen = {
         
         //$.mobile.loading("hide");
         
-        alert("Error", "codigo " + e.code);
+        alert("Error db", "codigo " + e.code);
         
         window.location.href='#home';
     },
@@ -45,13 +45,6 @@ var almacen = {
     //    window.location.href='#home';
     },
     
-      historialGuardado:function(){
-        
-        
-       // alert("Reserva guardada, en esera de sincronizacion");
-        
-       // window.location.href='#home';
-    },
     
     tablaReserva:function (tx){
         tx.executeSql("CREATE TABLE IF NOT EXISTS reservas (th, np, nh, nd)");
@@ -78,7 +71,7 @@ var almacen = {
                 almacen.nh = response.rows.item(i).nh;
                 almacen.nd =  response.rows.item(i).nd;
                 
-                almacen.db.transaction(almacen.guardarHistorial, almacen.error, almacen.historialGuardado);
+                almacen.db.transaction(almacen.guardarHistorial, almacen.error, null);
 
                 
             }

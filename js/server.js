@@ -23,9 +23,6 @@ var server = {
 			data: { tipo: th, numnp: np, numnh: nh, numnd:nd }
 		}).done(function(respuesta){
             $.mobile.loading("hide");
-            
-            alert("Prueba server");
-            
             if(respuesta == "1"){
                 alert("Los datos han sido guardados");
                 //Agregar al historial de reservas
