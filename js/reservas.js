@@ -76,7 +76,7 @@ var almacen = {
                 
             }
             
-         tx2.executeSQL("DELETE FROM reservas");
+         tx2.executeSql("DELETE FROM reservas");
             
         }, almacen.error);
         
